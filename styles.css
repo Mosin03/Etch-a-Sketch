@@ -1,22 +1,32 @@
 *{
   margin: 0;
   padding: 0;
+  
 }
 
 body{
   height: 100vh;
+  font-family:Georgia, 'Times New Roman', Times, serif;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+h1{
+  text-align: center;
+  font-size: 4rem;
+}
+
+button{
+  font-size: 2rem;
+}
 
 .container{
-  /* box-sizing: border-box; */
   width: 500px;
   height: 500px;
   border: 2px solid black;
   display: flex;
   flex-wrap: wrap;
+  cursor: pointer;
 
 }
 
