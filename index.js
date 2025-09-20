@@ -1,4 +1,5 @@
 const container = document.querySelector(".container");
+const gridBox = document.querySelectorAll(".container div");
 const style = getComputedStyle(container);
 containerHeight = parseFloat(style.height);
 containerWidth = parseFloat(style.width);
@@ -9,35 +10,44 @@ const buttons = document.querySelectorAll("button");
 
 
 function makeGrid(gridSize){
-  for (let i = 0; i < (gridSize * gridSize); i++){
-    let div =  document.createElement("div");
+  for (let i = 0; i < (gridSize * gridSize); i++){ 
+    let red = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    let div =  document.createElement("div"); 
     div.style.height = `${(containerHeight / gridSize)}px`;
     div.style.width = `${(containerWidth / gridSize)}px`;
+    div.color = `rgb(${red}, ${green}, ${blue})`;
     container.appendChild(div);
     div.addEventListener('mouseover', ()=>{
-    div.style.backgroundColor = "green";
+    div.style.backgroundColor = div.color;
     })
   }
 }
 
 
+
 buttons.forEach((button)=>{
   button.addEventListener("click", ()=>{
-    container.innerHTML = "";
+    container.innerHTML = ""; 
     let grizeSize = parseFloat(button.textContent);
     makeGrid(grizeSize);
   })
 })
 
+gridBox.forEach((gridBox)=>{
+  gridBox.addEventListener("mouseover", ()=>{
+    let red = Math.floor(Math.random() * 256);
+    let green = Math.floor(Math.random() * 256);
+    let blue = Math.floor(Math.random() * 256);
+    gridBox.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+    })
+})
+
+
+
 makeGrid(16);
 
 
 
-// const gridBoxes = document.querySelectorAll(".container div");
 
-
-// gridBoxes.forEach((box) => {
-//   box.addEventListener('mouseover', ()=>{
-//     box.style.backgroundColor = "red";  
-//   })
-// })
