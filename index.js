@@ -35,15 +35,6 @@ buttons.forEach((button)=>{
   })
 })
 
-gridBox.forEach((gridBox)=>{
-  gridBox.addEventListener("mouseover", ()=>{
-    let red = Math.floor(Math.random() * 256);
-    let green = Math.floor(Math.random() * 256);
-    let blue = Math.floor(Math.random() * 256);
-    gridBox.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
-    })
-})
-
 
 
 makeGrid(16);
