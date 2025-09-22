@@ -6,6 +6,7 @@ containerWidth = parseFloat(style.width);
 const buttons = document.querySelectorAll("button");
 
 
+
 // Create the 16x16 using a for loop 
 
 
@@ -27,13 +28,23 @@ function makeGrid(gridSize){
 
 
 
-buttons.forEach((button)=>{
-  button.addEventListener("click", ()=>{
-    container.innerHTML = ""; 
-    let grizeSize = parseFloat(button.textContent);
-    makeGrid(grizeSize);
+function remakeGrid(e){
+  e.addEventListener("click", ()=>{
+    container.innerHTML = "";
+    let gridSize = parseFloat(e.textContent);
+    makeGrid(gridSize);
   })
-})
+}
+
+
+buttons.forEach(remakeGrid);
+
+  // button.addEventListener("click", ()=>{
+  //   container.innerHTML = ""; 
+  //   let grizeSize = parseFloat(button.textContent);
+  //   makeGrid(grizeSize);
+  // })
+
 
 
 
