@@ -1,10 +1,9 @@
 const container = document.querySelector(".container");
-const gridBox = document.querySelectorAll(".container div");
 const style = getComputedStyle(container);
 containerHeight = parseFloat(style.height);
 containerWidth = parseFloat(style.width);
 const buttons = document.querySelectorAll("button");
-
+let mouseDown = false;
 
 
 // Create the 16x16 using a for loop 
@@ -21,11 +20,12 @@ function makeGrid(gridSize){
     div.color = `rgb(${red}, ${green}, ${blue})`;
     container.appendChild(div);
     div.addEventListener('mouseover', ()=>{
-    div.style.backgroundColor = div.color;
+      if(mouseDown){
+          div.style.backgroundColor = div.color;
+      }
     })
   }
 }
-
 
 
 function remakeGrid(e){
@@ -36,19 +36,21 @@ function remakeGrid(e){
   })
 }
 
+document.addEventListener("mousedown", ()=>{
+  mouseDown = true;
+})
 
-buttons.forEach(remakeGrid);
-
-  // button.addEventListener("click", ()=>{
-  //   container.innerHTML = ""; 
-  //   let grizeSize = parseFloat(button.textContent);
-  //   makeGrid(grizeSize);
-  // })
-
-
+document.addEventListener("mouseup", ()=>{
+  mouseDown = false;  
+})
 
 
 makeGrid(16);
+buttons.forEach(remakeGrid);
+
+
+
+
 
 
 
