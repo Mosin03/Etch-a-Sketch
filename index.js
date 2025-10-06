@@ -3,10 +3,11 @@ const style = getComputedStyle(container);
 containerHeight = parseFloat(style.height);
 containerWidth = parseFloat(style.width);
 const buttons = document.querySelectorAll("button");
+const currentGrid = document.querySelector("#currentGrid");
 let mouseDown = false;
 
 
-// Create the 16x16 using a for loop 
+// Create the 16x16 using a for loop  
 
 
 function makeGrid(gridSize){
@@ -32,6 +33,7 @@ function remakeGrid(e){
   e.addEventListener("click", ()=>{
     container.innerHTML = "";
     let gridSize = parseFloat(e.textContent);
+    currentGrid.textContent =  `Current Grid: ${gridSize} x ${gridSize}`;
     makeGrid(gridSize);
   })
 }
